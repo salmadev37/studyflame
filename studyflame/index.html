@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StudyFlame | Study together</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap">
+<style>
+:root{--bg:#FFF8EE;--card:#fff;--tx:#3B2E3F;--mu:#85798A;--ac:#FE9671;--acd:#C9532F;--pe:#FEE7D7;--pe2:#FFDECD;--lv:#E8E2FE;--lvd:#6B54C9;--ok:#2E9E6B}
+*{box-sizing:border-box}body{margin:0;background:#F4E9DC;color:var(--tx);font:16px/1.55 Inter,"Segoe UI",system-ui,sans-serif;min-height:100vh}
+button,input{font:inherit;color:inherit}button{cursor:pointer}
+.app{max-width:460px;margin:0 auto;min-height:100vh;background:var(--bg);display:flex;flex-direction:column;position:relative}
+@media(min-width:520px){.app{margin:20px auto;min-height:calc(100vh - 40px);border-radius:32px;box-shadow:0 10px 40px #5a3a2026;overflow:hidden}}
+header{display:flex;align-items:center;gap:10px;padding:18px 18px 8px}
+.logo{width:44px;height:44px;border-radius:14px;background:var(--ac);color:#fff;display:grid;place-items:center}
+header h2{margin:0;font-size:22px;font-weight:800;flex:1}
+.round{width:44px;height:44px;border-radius:50%;border:0;background:var(--pe);display:grid;place-items:center;color:var(--tx)}
+svg.i{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+main{flex:1;padding:8px 18px 100px;display:flex;flex-direction:column;gap:14px}
+.card{background:var(--card);border-radius:22px;padding:18px}
+small.k{color:var(--mu);font-size:13px;letter-spacing:.3px}
+h1{margin:2px 0 4px;font-size:30px;font-weight:800;line-height:1.25}h3{margin:0 0 10px;font-size:17px}
+p.s{margin:0 0 14px;color:var(--mu)}
+.streak{display:flex;align-items:center;gap:12px}.ft{width:54px;height:54px;border-radius:16px;background:var(--pe2);color:var(--acd);display:grid;place-items:center}
+.streak b{display:block}.streak span{color:var(--mu);font-size:14px}.streak .num{margin-inline-start:auto;font-size:26px;font-weight:800;color:var(--acd)}
+.tiles{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.tile{border-radius:22px;padding:16px;display:flex;flex-direction:column;gap:2px}.tile b{font-size:34px;font-weight:800;line-height:1.1}.tile span{color:var(--mu);font-size:14px}
+.tile.lav{background:var(--lv)}.tile.lav svg{color:var(--lvd)}.tile.pch{background:var(--pe)}.tile.pch svg{color:var(--acd)}
+.cta{height:58px;border:0;border-radius:20px;background:var(--ac);color:#fff;font-size:19px;font-weight:700;display:flex;align-items:center;justify-content:center;gap:10px;box-shadow:0 6px 16px #fe967155}
+.bar{height:10px;border-radius:5px;background:var(--pe);overflow:hidden}.bar i{display:block;height:100%;background:var(--ac);border-radius:5px;transition:width .4s}
+.row{display:flex;align-items:center;gap:10px}.row .sp{flex:1}
+nav{position:sticky;bottom:0;margin-top:auto;display:grid;grid-template-columns:repeat(4,1fr);background:#fff;border-top:1px solid var(--pe);padding:8px 6px 10px}
+nav button{border:0;background:none;display:flex;flex-direction:column;align-items:center;gap:2px;font-size:12px;color:var(--mu);padding:6px 0;border-radius:14px}
+nav button.on{color:var(--acd);font-weight:700}nav button.on svg{background:var(--pe);border-radius:10px;padding:3px;width:30px;height:30px;box-sizing:border-box}
+.ringw{position:relative;width:260px;height:260px;margin:6px auto}.ringw svg{transform:rotate(-90deg)}
+.ringw div{position:absolute;inset:0;display:grid;place-content:center;text-align:center}.ringw b{font-size:54px;font-weight:800;font-variant-numeric:tabular-nums;line-height:1}.ringw span{color:var(--mu);font-size:14px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.chip{border:0;background:var(--pe);border-radius:999px;padding:6px 16px;font-weight:500}.chip.on{background:var(--ac);color:#fff}
+input.f{width:100%;height:48px;border:2px solid var(--pe);border-radius:14px;padding:0 14px;background:#fff}input.f:focus{outline:3px solid var(--ac);outline-offset:1px;border-color:var(--ac)}
+.btn2{height:52px;border-radius:16px;border:0;background:var(--pe);font-weight:700;padding:0 18px}.btn2.p{background:var(--ac);color:#fff}
+.lb{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid var(--pe)}.lb:last-child{border:0}
+.av{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;font-weight:800;color:#fff;flex:none}
+.rk{width:22px;text-align:center;font-weight:800;color:var(--mu)}.lb .sp{flex:1;min-width:0}
+.live{background:#DDF5E8;color:var(--ok);border-radius:999px;font-size:12px;padding:1px 10px;font-weight:700;white-space:nowrap}
+.hm{display:grid;grid-auto-flow:column;grid-template-rows:repeat(7,1fr);gap:4px;direction:ltr;justify-content:center}
+.hm i{width:16px;height:16px;border-radius:5px;background:#F7E8DC}.hm .l1{background:#FFCBB3}.hm .l2{background:#FFA583}.hm .l3{background:#FF8A5E}.hm .l4{background:#D9532B}.hm .no{background:none}
+.sb{display:grid;grid-template-columns:90px 1fr 46px;gap:8px;align-items:center;font-size:14px;margin:6px 0}
+.note{background:var(--lv);border-radius:16px;padding:10px 14px;font-size:14px}
+#toast{position:fixed;inset:auto 0 90px;margin:auto;width:max-content;max-width:90vw;background:#3B2E3F;color:#fff;padding:10px 18px;border-radius:14px;opacity:0;transition:opacity .25s;pointer-events:none;z-index:9}#toast.on{opacity:1}
+dialog{border:0;border-radius:22px;width:min(92vw,360px);padding:20px;background:#fff;color:var(--tx)}dialog::backdrop{background:#3b2e3f66}dialog input{margin:6px 0 10px}
+label{font-size:13px;color:var(--mu);display:block}:is(button,input):focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+</style>
+</head>
+<body>
+<div class="app">
+  <header><div class="logo" id="logo" aria-hidden="true"></div><h2>StudyFlame</h2><button class="round" id="acct" aria-label="Account"></button></header>
+  <main id="view"></main>
+  <nav id="nav"></nav>
+</div>
+<div id="toast" role="status"></div>
+<dialog id="dlg"><h3>My account</h3>
+  <label for="em">Email</label><input class="f" id="em" type="email" autocomplete="email">
+  <label for="pw">Password (at least 6 characters)</label><input class="f" id="pw" type="password" autocomplete="current-password">
+  <p id="aErr" role="alert" style="color:#B3261E;font-size:13px;min-height:20px;margin:0"></p>
+  <div class="row"><button class="btn2 p sp" data-a="login">Log in</button><button class="btn2 sp" data-a="register">Sign up</button><button class="btn2" data-a="close" aria-label="Close">×</button></div>
+</dialog>
+
+<script type="module">
+// ===== Firebase settings (Web app): paste yours here to enable real accounts and squads =====
+const FIREBASE_CONFIG = { apiKey: "", authDomain: "", projectId: "", appId: "" };
+// ==========================================================================================
+const FB = !!FIREBASE_CONFIG.apiKey, K = "studyflame-v1";
+const $ = s => document.querySelector(s);
+const esc = t => String(t).replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const P = {flame:"M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5z",
+ user:"M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2M12 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8z",
+ trophy:"M6 9H4.5a2.5 2.5 0 0 1 0-5H6M18 9h1.5a2.5 2.5 0 0 0 0-5H18M4 22h16M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22M18 2H6v7a6 6 0 0 0 12 0V2z",
+ clock:"M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM12 6v6l4 2",play:"M6 3l14 9-14 9V3z",pause:"M6 4h4v16H6zM14 4h4v16h-4z",
+ home:"M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2zM9 22V12h6v10",timer:"M12 5a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM12 9v4l2 2M9 2h6",
+ users:"M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M9 3a4 4 0 1 0 0 8 4 4 0 0 0 0-8zM23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75",
+ chart:"M3 3v18h18M7 14l4-4 4 4 5-6"};
+const ic = n => `<svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="${P[n]}"/></svg>`;
+const pad = n => String(n).padStart(2, "0");
+const dkey = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const addDays = (d, n) => { const x = new Date(d); x.setDate(x.getDate() + n); return x };
+const weekStart = () => dkey(addDays(new Date(), -new Date().getDay()));
+const hrs = m => (m/60).toFixed(1).replace(/\.0$/, "");
+const COLORS = ["#FE9671","#8B74E0","#3BA68A","#E0728F","#5B8DEF","#D9A21B"];
+
+let S = {name:"", goal:15, log:{}, squad:null};
+let tab = "home", user = null, db, auth, api, SQ = [], SQname = "", unsub = null;
+const dayMin = k => Object.values(S.log[k] || {}).reduce((a, b) => a + b, 0);
+const weekMin = () => { const w = new Date(weekStart() + "T00:00"); let t = 0; for (let i = 0; i < 7; i++) t += dayMin(dkey(addDays(w, i))); return t };
+const streak = () => { let d = new Date(), n = 0; if (!dayMin(dkey(d))) d = addDays(d, -1); while (dayMin(dkey(d)) > 0) { n++; d = addDays(d, -1) } return n };
+const myName = () => S.name || (user ? user.email.split("@")[0] : "Me");
+const toast = t => { const e = $("#toast"); e.textContent = t; e.classList.add("on"); clearTimeout(toast.t); toast.t = setTimeout(() => e.classList.remove("on"), 2600) };
+
+// ---------- Squad data ----------
+const DEMO = [{name:"Rima",weekMin:450,streak:12,studying:true,subject:"Chemistry"},{name:"Noura",weekMin:360,streak:5},{name:"Lama",weekMin:240,streak:3},{name:"Sara",weekMin:120,streak:1}];
+function board() {
+  const wk = weekStart(), me = {id:"me", name:myName(), weekMin:weekMin(), streak:streak(), me:true};
+  const others = FB ? SQ.filter(x => x.id !== (user && user.uid) && x.week === wk) : DEMO;
+  return [...others, {...me, studying: T.state === "run", subject: T.subject}].sort((a, b) => b.weekMin - a.weekMin);
+}
+
+// ---------- Timer ----------
+let T = {dur:25, state:"idle", end:0, left:25*60, subject:""};
+const mmss = s => `${pad(Math.floor(s/60))}:${pad(s%60)}`;
+function paintTimer() {
+  const t = $("#tm"); if (!t) return;
+  t.textContent = mmss(T.left);
+  $("#arc").setAttribute("stroke-dasharray", `${(1 - T.left/(T.dur*60)) * 691} 700`);
+  document.title = T.state === "run" ? `${mmss(T.left)} · StudyFlame` : "StudyFlame | Study together";
+}
+function setState(s) { T.state = s; if (tab === "timer") render(); pushStats(); }
+function startT() { if (T.state === "run") return; T.subject = ($("#subj") || {value: T.subject}).value.trim(); T.end = Date.now() + T.left*1000; setState("run") }
+function pauseT() { T.left = Math.max(1, Math.round((T.end - Date.now())/1000)); setState("pause") }
+function finishT(auto) {
+  const elapsed = auto ? T.dur*60 : T.dur*60 - T.left, m = auto ? T.dur : Math.floor(elapsed/60);
+  if (m >= 1) { const k = dkey(new Date()), s = T.subject || "General"; S.log[k] = S.log[k] || {}; S.log[k][s] = (S.log[k][s] || 0) + m; toast(`Nice work! +${m} min 🔥`); save() }
+  else toast("Session was under a minute, so it wasn't saved");
+  T.left = T.dur*60; setState("idle");
+}
+setInterval(() => { if (T.state !== "run") return; T.left = Math.max(0, Math.round((T.end - Date.now())/1000)); paintTimer(); if (T.left <= 0) finishT(true) }, 250);
+
+// ---------- Views ----------
+const avatar = (n, i) => `<div class="av" style="background:${COLORS[i % COLORS.length]}">${esc([...n][0] || "?")}</div>`;
+function vHome() {
+  const b = board(), rank = b.findIndex(x => x.me) + 1, tot = b.reduce((a, x) => a + x.weekMin, 0), n = streak(), w = weekMin(), pct = Math.min(100, w/(S.goal*60)*100), live = b.filter(x => x.studying && !x.me);
+  return `<section class="card"><small class="k">YOUR STUDY SQUAD</small><h1>Ready to lock in? ✨</h1><p class="s">Your friends are counting on you.</p>
+  <div class="streak"><div class="ft">${ic("flame")}</div><div><b>${n ? `${n}-day streak!` : "Start your streak today!"}</b><span>Keep your squad going</span></div><div class="num">${n} 🔥</div></div></section>
+  <div class="tiles"><div class="tile lav">${ic("trophy")}<b>#${rank}</b><span>Your squad rank</span></div><div class="tile pch">${ic("clock")}<b>${hrs(tot)}h</b><span>Squad study time</span></div></div>
+  <section class="card"><div class="row"><h3 class="sp">Weekly goal</h3><b>${hrs(w)} / ${S.goal} h</b></div><div class="bar" role="progressbar" aria-valuenow="${Math.round(pct)}" aria-valuemin="0" aria-valuemax="100"><i style="width:${pct}%"></i></div>
+  ${live.length ? `<p class="s" style="margin:12px 0 0"><span class="live">Studying now</span> ${live.map(x => esc(x.name)).join(", ")}</p>` : ""}</section>
+  <button class="cta" data-go="timer">Start studying ${ic("play")}</button>`;
+}
+function vTimer() {
+  const subs = [...new Set(Object.keys(S.log).sort().reverse().flatMap(k => Object.keys(S.log[k])))].slice(0, 4), run = T.state === "run", idle = T.state === "idle";
+  return `<section class="card"><div class="ringw"><svg width="260" height="260" viewBox="0 0 260 260"><circle cx="130" cy="130" r="110" fill="none" stroke="#FEE7D7" stroke-width="16"/><circle id="arc" cx="130" cy="130" r="110" fill="none" stroke="#FE9671" stroke-width="16" stroke-linecap="round" stroke-dasharray="0 700"/></svg>
+  <div><b id="tm">${mmss(T.left)}</b><span>${run ? "Stay focused, you've got this 🔥" : T.state === "pause" ? "Paused" : "Ready to start"}</span></div></div>
+  ${idle ? `<div class="chips" style="margin-bottom:14px">${[15,25,45,60].map(m => `<button class="chip ${T.dur === m ? "on" : ""}" data-dur="${m}">${m} min</button>`).join("")}</div>` : ""}
+  <label for="subj">Subject</label><input class="f" id="subj" placeholder="e.g. Math" value="${esc(T.subject)}" ${idle ? "" : "disabled"} maxlength="24">
+  ${idle && subs.length ? `<div class="chips" style="margin-top:10px">${subs.map(s => `<button class="chip" data-sub="${esc(s)}">${esc(s)}</button>`).join("")}</div>` : ""}</section>
+  <div class="row"><button class="cta sp" style="flex:2" data-t="${run ? "pause" : "start"}">${run ? "Pause " + ic("pause") : (T.state === "pause" ? "Resume " : "Start ") + ic("play")}</button>
+  ${idle ? "" : `<button class="btn2 sp" style="height:58px" data-t="finish">Finish &amp; save</button>`}</div>`;
+}
+function vSquad() {
+  if (!FB) return squadList(true);
+  if (!user) return `<section class="card"><h3>Squad</h3><p class="s">Sign in to create a squad and invite your friends.</p><button class="btn2 p" data-a="open">Sign in</button></section>`;
+  if (!S.squad) return `<section class="card"><h3>Create a squad</h3><input class="f" id="sqn" placeholder="Squad name, e.g. Class of 2026" maxlength="30"><button class="btn2 p" style="margin-top:10px;width:100%" data-sq="create">Create</button></section>
+  <section class="card"><h3>Join with a code</h3><input class="f" id="sqc" placeholder="6-character code" maxlength="6" style="text-transform:uppercase"><button class="btn2" style="margin-top:10px;width:100%" data-sq="join">Join</button></section>`;
+  return squadList(false);
+}
+function squadList(demo) {
+  const b = board(), mx = Math.max(60, ...b.map(x => x.weekMin));
+  return `<section class="card"><div class="row"><div class="sp"><h3 style="margin:0">${demo ? "Demo squad" : esc(SQname || "My squad")}</h3><small class="k">This week's ranking</small></div>${demo ? "" : `<button class="btn2" data-sq="copy" style="height:40px">${esc(S.squad)} 📋</button>`}</div>
+  ${b.map((x, i) => `<div class="lb"><span class="rk">${i + 1}</span>${avatar(x.name, i)}<div class="sp"><div class="row"><b>${esc(x.name)}${x.me ? " (you)" : ""}</b>${x.studying ? `<span class="live">Studying${x.subject ? " · " + esc(x.subject) : ""}</span>` : ""}</div><div class="bar" style="margin-top:6px"><i style="width:${x.weekMin/mx*100}%"></i></div></div><div style="text-align:end"><b>${hrs(x.weekMin)}h</b><br><small class="k">🔥 ${x.streak || 0}</small></div></div>`).join("")}</section>
+  ${demo ? `<div class="note">This is a demo squad. Connect Firebase to run a real squad with your friends, updated in real time.</div>` : `<button class="btn2" data-sq="leave">Leave squad</button>`}`;
+}
+function vStats() {
+  const now = new Date(), start = addDays(now, -now.getDay() - 14*7), cells = [];
+  for (let i = 0; i < 105; i++) { const d = addDays(start, i), m = d > now ? -1 : dayMin(dkey(d)); cells.push(`<i class="${m < 0 ? "no" : m === 0 ? "" : m < 30 ? "l1" : m < 90 ? "l2" : m < 180 ? "l3" : "l4"}" title="${dkey(d)}: ${m < 0 ? 0 : m} min"></i>`) }
+  const tot = {}, all = Object.keys(S.log).reduce((a, k) => a + dayMin(k), 0);
+  Object.values(S.log).forEach(o => Object.entries(o).forEach(([s, m]) => tot[s] = (tot[s] || 0) + m));
+  const top = Object.entries(tot).sort((a, b) => b[1] - a[1]).slice(0, 5), mx = top[0] ? top[0][1] : 1;
+  return `<div class="tiles"><div class="tile pch">${ic("clock")}<b>${hrs(dayMin(dkey(now)))}h</b><span>Today</span></div><div class="tile lav">${ic("chart")}<b>${hrs(all)}h</b><span>All time</span></div></div>
+  <section class="card"><h3>Your study heatmap</h3><div class="hm">${cells.join("")}</div></section>
+  <section class="card"><h3>Top subjects</h3>${top.length ? top.map(([s, m]) => `<div class="sb"><span>${esc(s)}</span><div class="bar"><i style="width:${m/mx*100}%"></i></div><b>${hrs(m)}h</b></div>`).join("") : `<p class="s" style="margin:0">Start a session and your subjects will show up here.</p>`}</section>
+  <section class="card"><h3>Settings</h3><label for="nm">Your name in the squad</label><input class="f" id="nm" value="${esc(S.name)}" maxlength="16" placeholder="${esc(myName())}">
+  <label for="gl" style="margin-top:10px">Weekly goal (hours)</label><input class="f" id="gl" type="number" min="1" max="100" value="${S.goal}"></section>`;
+}
+const VIEWS = {home:vHome, timer:vTimer, squad:vSquad, stats:vStats};
+const NAV = [["home","home","Home"],["timer","timer","Timer"],["squad","users","Squad"],["stats","chart","Stats"]];
+function render() {
+  $("#view").innerHTML = VIEWS[tab]();
+  $("#nav").innerHTML = NAV.map(([k, i, t]) => `<button class="${tab === k ? "on" : ""}" data-go="${k}" ${tab === k ? 'aria-current="page"' : ""}>${ic(i)}${t}</button>`).join("");
+  $("#acct").innerHTML = ic("user"); $("#logo").innerHTML = ic("flame"); paintTimer();
+}
+
+// ---------- Interaction ----------
+document.addEventListener("click", e => {
+  const g = e.target.closest("[data-go]"), d = e.target.closest("[data-dur]"), sb = e.target.closest("[data-sub]"), t = e.target.closest("[data-t]"), sq = e.target.closest("[data-sq]"), a = e.target.closest("[data-a]");
+  if (g) { tab = g.dataset.go; render(); scrollTo(0, 0) }
+  else if (d) { T.dur = +d.dataset.dur; T.left = T.dur*60; render() }
+  else if (sb) { $("#subj").value = sb.dataset.sub }
+  else if (t) { const k = t.dataset.t; k === "start" ? startT() : k === "pause" ? pauseT() : finishT(false) }
+  else if (sq) squadAction(sq.dataset.sq);
+  else if (a) { const k = a.dataset.a; k === "close" ? $("#dlg").close() : k === "open" ? $("#dlg").showModal() : doAuth(k) }
+  else if (e.target.closest("#acct")) { user ? (confirm("Sign out of " + user.email + "?") && api.signOut(auth)) : FB ? $("#dlg").showModal() : toast("Local mode: your data is saved on this device") }
+});
+document.addEventListener("input", e => {
+  if (e.target.id === "nm") { S.name = e.target.value.trim(); save(); pushStats() }
+  if (e.target.id === "gl") { S.goal = Math.max(1, +e.target.value || 15); save() }
+});
+
+// ---------- Saving and Firebase ----------
+let tm; const save = () => { clearTimeout(tm); tm = setTimeout(persist, 500) };
+async function persist() { try { if (user) await api.setDoc(api.doc(db, "users", user.uid, "studyflame", "main"), S); else localStorage.setItem(K, JSON.stringify(S)); await pushStats() } catch (e) { toast("Couldn't save: " + e.message) } }
+async function pushStats() { if (!user || !S.squad) return; try { await api.setDoc(api.doc(db, "squads", S.squad, "stats", user.uid), {name: myName(), week: weekStart(), weekMin: weekMin(), streak: streak(), studying: T.state === "run", subject: T.subject || "", ts: Date.now()}) } catch (e) {} }
+function listen() {
+  if (unsub) unsub(); unsub = null; SQ = []; if (!user || !S.squad) return render();
+  api.getDoc(api.doc(db, "squads", S.squad)).then(s => { SQname = s.exists() ? s.data().name : ""; render() });
+  unsub = api.onSnapshot(api.collection(db, "squads", S.squad, "stats"), s => { SQ = s.docs.map(d => ({id: d.id, ...d.data()})).map(x => x.studying && Date.now() - x.ts > 9e6 ? {...x, studying: false} : x); if (tab !== "timer") render() });
+}
+async function squadAction(k) {
+  try {
+    if (k === "create") { const n = $("#sqn").value.trim(); if (!n) return toast("Enter a squad name"); const c = Array.from({length: 6}, () => "ABCDEFGHJKLMNPQRSTUVWXYZ23456789"[Math.random()*32|0]).join(""); await api.setDoc(api.doc(db, "squads", c), {name: n, owner: user.uid, created: Date.now()}); S.squad = c }
+    else if (k === "join") { const c = $("#sqc").value.trim().toUpperCase(); const s = await api.getDoc(api.doc(db, "squads", c)); if (!s.exists()) return toast("Invalid code"); S.squad = c }
+    else if (k === "copy") { await navigator.clipboard.writeText(S.squad); return toast("Code copied: " + S.squad) }
+    else if (k === "leave") { if (!confirm("Leave the squad?")) return; S.squad = null }
+    save(); listen(); render();
+  } catch (e) { toast("Error: " + e.message) }
+}
+async function doAuth(kind) {
+  const er = $("#aErr"); er.textContent = "";
+  try { const f = kind === "login" ? api.signInWithEmailAndPassword : api.createUserWithEmailAndPassword; await f(auth, $("#em").value.trim(), $("#pw").value); $("#dlg").close(); $("#pw").value = "" }
+  catch (e) { er.textContent = ({"auth/invalid-credential":"Wrong email or password","auth/email-already-in-use":"This email is already registered","auth/weak-password":"Password is too weak","auth/invalid-email":"Invalid email format"})[e.code] || "Error: " + e.code }
+}
+async function initFirebase() {
+  const V = "10.14.1", u = n => `https://www.gstatic.com/firebasejs/${V}/firebase-${n}.js`;
+  const [app, a, f] = await Promise.all([import(u("app")), import(u("auth")), import(u("firestore"))]);
+  const ap = app.initializeApp(FIREBASE_CONFIG); auth = a.getAuth(ap); db = f.getFirestore(ap); api = {...a, ...f};
+  a.onAuthStateChanged(auth, async us => {
+    user = us;
+    if (us) { try { const s = await f.getDoc(f.doc(db, "users", us.uid, "studyflame", "main")); if (s.exists()) S = {...S, ...s.data()}; else await persist() } catch (e) { toast("Couldn't read your data: " + e.message) } }
+    else loadLocal();
+    listen(); render();
+  });
+}
+function loadLocal() { try { const d = JSON.parse(localStorage.getItem(K)); if (d && d.log) S = {...S, ...d} } catch (e) {} }
+
+loadLocal(); render();
+if (FB) initFirebase().catch(e => toast("Couldn't load Firebase: " + e.message));
+</script>
+</body>
+</html>
