@@ -2,7 +2,7 @@
 
 A study-together web app. Students track focus sessions with a timer, build daily streaks, and compete in a weekly leaderboard with friends in a shared squad. The leaderboard updates in real time.
 
-**Live demo:** https://YOUR-USERNAME.github.io/studyflame/
+**Live demo:** https://salmadev37.github.io/studyflame/
 
 ![Preview](screenshots/preview.png)
 
@@ -60,4 +60,4 @@ Open `index.html` in a browser.
 
 ## Author
 
-Salma
+Salma ([@salmadev37](https://github.com/salmadev37))
